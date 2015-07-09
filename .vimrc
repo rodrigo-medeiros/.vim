@@ -19,6 +19,9 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'pangloss/vim-javascript'
 
+" React syntax highlighting
+Plugin 'mxw/vim-jsx'
+
 " Auto insert closing }])
 Plugin 'Raimondi/delimitMate'
 
@@ -43,3 +46,9 @@ set softtabstop=2
 
 " setting up delimitMate to respond to Ctrl+c
 imap <C-c> <CR><Esc>O
+
+" configuring Syntastic to use ESLint
+let g:syntastic_javascript_checkers = ['eslint']
+
+" Allow JSX in normal JS files
+let g:jsx_ext_required = 0 

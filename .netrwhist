@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/rodrigomedeiros/repos/delatinise-cli/test'
+let g:netrw_dirhist_2='/home/rodrigomedeiros/repos/random-stuff/chai-as-promised'
+let g:netrw_dirhist_3='/home/rodrigomedeiros/repos/delatinise-cli'
