@@ -34,6 +34,7 @@ call vundle#end()            " required
 " Wakatime plugin
 Bundle 'wakatime/vim-wakatime'
 
+filetype plugin on           " required by nerdcommeter
 filetype plugin indent on    " required
 
 " show line numbers
