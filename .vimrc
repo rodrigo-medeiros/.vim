@@ -40,10 +40,26 @@ filetype plugin indent on    " required
 " show line numbers
 set number
 
-" replacing tabs by 2 spaces
-set expandtab
-set shiftwidth=2
-set softtabstop=2
+" default indentation: 2 spaces
+set ts=2 sts=2 sw=2 expandtab
+
+" Only do this part when compiled with support for autocommands
+if has("autocmd")
+  " Enable file type detection
+  filetype on
+
+  " Syntax of these languages is fussy over tabs Vs spaces
+  autocmd FileType make setlocal ts=8 sts=8 sw=8 noexpandtab
+  autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+  " Customisations based on house-style (arbitrary)
+  autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType css setlocal ts=2 sts=2 sw=2 expandtab
+  autocmd FileType javascript setlocal ts=2 sts=2 sw=2 noexpandtab
+
+  " Treat .rss files as XML
+  autocmd BufNewFile,BufRead *.rss setfiletype xml
+endif
 
 " setting up delimitMate to respond to Ctrl+c
 imap <C-c> <CR><Esc>O
@@ -53,3 +69,6 @@ let g:syntastic_javascript_checkers = ['eslint']
 
 " Allow JSX in normal JS files
 let g:jsx_ext_required = 0 
+
+" Use the same symbols as TextMate for tabstops and EOLs
+set listchars=tab:▸\ ,eol:¬
